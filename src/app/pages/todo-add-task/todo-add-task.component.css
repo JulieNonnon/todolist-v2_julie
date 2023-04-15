@@ -1,0 +1,98 @@
+.radioTest{
+    appearance: none;
+    height: 48px;
+    width: 48px;
+    border-radius: 50%;
+    background-color: #1D2038;
+    margin: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    cursor: pointer;
+}
+
+.radioTest:checked {
+    background-color: #F3D24F;
+    cursor: pointer;
+}
+
+.categoryShop::before{
+    content: '🛍️';
+}
+
+.categoryHealth::before{
+    content: '💊';
+}
+
+.categoryWork::before{
+    content: '💼';
+}
+
+.categoryBills::before{
+    content: '💸';
+}
+
+.categoryClean::before{
+    content: '🧼';
+}
+
+.categoryOther::before{
+    content: '🤷‍♀️';
+}
+
+
+/* ZONE TEXTE POUR AJOUT TODO */
+
+.textAreaFlex, .categoryFlex{
+    display: flex;
+    justify-content: center;
+}
+
+.textareaInput{
+    background-color: #1D2038;
+    border: none;
+    resize: none;
+    width: 338px;
+    height: 192px;
+    color: white;
+    font-family: Quicksand;
+    font-weight: 700;
+    font-size: 16px;
+    padding-left: 17px;
+    padding-top: 24px;
+}
+
+/* TACHE URGENTE */
+
+.urgentOption{
+    margin-left: 28px;
+}
+
+.checkbox-round{
+    width: 25px;
+    height: 25px;
+    background-color: #1D2038;
+    border-radius: 50%;
+    vertical-align: middle;
+    appearance: none;
+    -webkit-appearance: none;
+    cursor: pointer;
+    margin-right: 11px;
+}
+
+.checkbox-round:checked {
+    background-color: #E475F1;
+}
+
+.checkbox-round:checked:after {
+    content: '✔';
+    color: white;
+    font-family: Quicksand;
+    font-weight: 700;
+    font-size: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
