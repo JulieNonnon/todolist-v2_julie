@@ -1,0 +1,74 @@
+/* Style Général */
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+    background-color: #040722;
+    color: white;
+    font-family: Quicksand;
+    font-weight: 700;
+    font-size: 16px;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    max-height: 100vh;
+}
+
+main{
+    flex: 1;
+    overflow-y: scroll;
+}
+
+
+/* personnalisation scrollbar */
+
+    body::-webkit-scrollbar {
+        width: 10px;
+    }
+    
+    body::-webkit-scrollbar-thumb {
+        background-color: #F3D24F;
+    }
+
+p{
+    margin-left: 28px;
+    margin-bottom: 28px;
+    margin-top: 28px;
+}
+
+
+/* Style des boutons "action" (Créer/Modifier/Valider) */
+
+.btn-action-flex{
+    display: flex;
+    justify-content: center;
+}
+
+.btn-action{
+    background-color: #64A7D9;
+    color: white;
+    border: none;
+    border-radius: 30px;
+    width: 248px;
+    height: 48px;
+    margin-bottom: 30px;
+    font-family: Quicksand;
+    font-weight: 700;
+    font-size: 16px;
+}
+
+.btn-action:hover{
+    cursor: pointer;
+}
+
+.emptyContentMessage{
+    text-align: center;
+    margin-bottom: 32px;
+}
