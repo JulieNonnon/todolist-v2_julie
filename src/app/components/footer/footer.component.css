@@ -1,0 +1,60 @@
+footer{
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    border-top: solid 1px white;
+    background-color: #040722;
+    /* position: fixed;
+    bottom: 0%; */
+    padding: 10px;
+    width: 100%;
+}
+
+button{
+    background-color: #1D2038;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 66px;
+    width: 66px;
+    border: none;
+    border-radius: 50px;
+    margin: 17px 12.5px;
+
+}
+
+/* Boutons icones */
+.btn-list{
+    background-image: url(src\assets\images\icon_list.png);
+}
+.btn-plus{
+    background-image: url(src\assets\images\icon_plus.png);
+}
+.btn-history{
+    background-image: url(src\assets\images\icon_history.png);
+}
+
+
+/* Boutons si page active */
+.btn-list .active{
+    background-color: #88E7A1;
+}
+.btn-plus .active{
+    background-color: #F3D24F;
+}
+.btn-history .active{
+    background-color: #E475F1;
+}
+
+/* Boutons si survolés (optionel) */
+.btn-list:hover{
+    background-color: #88E7A1;
+}
+.btn-plus:hover{
+    background-color: #F3D24F; 
+}
+.btn-history:hover{
+    background-color: #E475F1;
+}
+.btn-list:hover, .btn-plus:hover, .btn-history:hover{
+    transition-duration: 0.5s;
+}
