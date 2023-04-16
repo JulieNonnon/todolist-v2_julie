@@ -1,22 +1,71 @@
-<ul>
+<!-- <div *ngIf="!ExistingTask"> -->
 
-    <!-- <li *ngFor="let item of allItems">{{item.description}}</li> -->
+    <!-- Display si todolist vide -->
 
-</ul>
+    <div class="emptyContainer">
 
+        <div class="emptyTodo">
 
+            <p class="emptyContentMessage">Aucune tâche pour le moment 🙌</p>
 
+            <app-create-task-button></app-create-task-button>
 
-<!-- Display si todolist vide -->
-
-<div class="emptyContainer">
-
-    <div class="emptyTodo">
-
-        <p class="emptyContentMessage">Aucune tâche pour le moment 🙌</p>
-
-        <app-create-task-button></app-create-task-button>
+        </div>
 
     </div>
 
-</div>
+<!-- </div> -->
+
+
+
+<!-- <div *ngIf="ExistingTask"> -->
+
+    <!-- Tâches urgentes -->
+
+    <p *ngIf="displayUrgentTask()"> ⚠️Tâches urgentes: </p>
+
+    <ng-container *ngFor="let task of taskManagementService.getTask()">
+
+    <div class="listedTask" *ngIf="task.isUrgent">
+
+        <label for="{{task.id}}">
+
+        <input type="radio" [value]="task.id">
+
+        <div class="taskContent" (click)="modifyTask()">
+            <span class="categoryIcon">{{task.category}}</span>
+            <span>{{task.content}}</span>
+        </div>
+
+        </label>
+
+    </div>
+
+    </ng-container>
+
+    <!-- Autres tâches / non urgentes -->
+
+    <p *ngIf="displayOtherTask()"> 🌸Autres tâches:</p>
+
+    <ng-container *ngFor="let task of taskManagementService.getTask()">
+        
+    <div class="listedTask" *ngIf="!task.isUrgent">
+
+        <label for="{{task.content}}">
+
+        <input id="{{task.id}}" [value]='task.id' type="radio">
+
+        <div class="taskContent" (click)="modifyTask()">
+            <span class="categorySpaceBtw">{{task.category}}</span>
+            <span>{{task.content}}</span>
+        </div>
+
+        </label>
+
+    </div>
+
+    </ng-container>
+
+<!-- </div> -->
+
+

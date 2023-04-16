@@ -96,3 +96,13 @@
     align-items: center;
 
 }
+
+a{
+    text-decoration: none;
+    color: white;
+}
+
+.disabled-btn {
+    opacity: 0.5;
+    cursor: not-allowed;
+}

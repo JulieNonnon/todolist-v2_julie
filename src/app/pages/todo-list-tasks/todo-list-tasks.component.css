@@ -1,0 +1,23 @@
+.listedTask label {
+    display: flex;
+    margin-left:  0 0 23px 28px; 
+  }
+  
+  input[type="radio"] {
+    border-radius: 50%;
+    border: 2px solid white;
+    background-color: #1D2038;
+    appearance: none;
+    width: 23px;
+    height: 23px;
+    margin-right: 15px;
+  }
+  
+  .categoryIcon{
+  margin-right: 10px;
+  }
+  
+  .taskContent {
+    word-break: break-all;
+    max-width: 290px; 
+  }
