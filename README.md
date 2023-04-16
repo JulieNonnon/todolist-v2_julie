@@ -1,27 +1,13 @@
-# TodolistV2Julie
+App toujours non fonctionnelle:
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.0.2.
+Mon objectif étant de mieux comprendre la mise en place de formulaire via les modules, et faire apparaitre les taches crées sur la page d'accueil. Rien ne s'affiche lorsque on appui sur valider (redirection pahe accueil ok mais rien)
 
-## Development server
+Erreur dans la console que je n'ai pas réussi à résoudre dans les méthodes concernées ci dessous:
+ERROR RangeError: Maximum call stack size exceeded at TaskManagementService.createTask et TaskManagementService.getTask
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Je pense avoir créé trop de components, les boutons actions en particulier: des soucis lors de l'appel de ces components dans leur pages attribuées, en leur ajoutant les parametres nécessaires (méthodes, paramètres, classes etc ..) ce qui a généré des conflits.
+J'en suis revenu à coder le bouton directement dans la page pour éviter ces conflits (doublon)
 
-## Code scaffolding
+la modification est en cours
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+l'historique n'est pas codé (prochain objectif)

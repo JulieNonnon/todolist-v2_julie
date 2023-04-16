@@ -1,56 +1,63 @@
+<form [formGroup]="taskForm" #formGroup="ngForm" >
+
 <p>Selectionnez votre catégorie:</p>
-
-
-<form [(ngModel)]="text">
         
     <div class="categoryFlex">
 
-        <div><input type="radio" name="categorySelect" class="radioTest categoryShop"></div>
+        <div><input required type="radio" [(ngModel)]="pickCategory" id="category1" formControlName="categoryForm" name="categoryForm" value="🛍️" class="radioTest categoryShop"></div>
 
-        <div><input type="radio" name="categorySelect" class="radioTest categoryHealth"></div>
+        <div><input required type="radio" [(ngModel)]="pickCategory" id="category2" formControlName="categoryForm" name="categoryForm" value="💊" class="radioTest categoryHealth"></div>
 
-        <div><input type="radio" name="categorySelect" class="radioTest categoryWork"></div>
+        <div><input required type="radio" [(ngModel)]="pickCategory" id="category3" formControlName="categoryForm" name="categoryForm" value="💼" class="radioTest categoryWork"></div>
 
-        <div><input type="radio" name="categorySelect" class="radioTest categoryBills"></div>
+        <div><input required type="radio" [(ngModel)]="pickCategory" id="category4" formControlName="categoryForm" name="categoryForm" value="💸" class="radioTest categoryBills"></div>
 
-        <div><input type="radio" name="categorySelect" class="radioTest categoryClean"></div>
+        <div><input required type="radio" [(ngModel)]="pickCategory" id="category5" formControlName="categoryForm" name="categoryForm" value="🧼" class="radioTest categoryClean"></div>
 
-        <div><input type="radio" name="categorySelect" class="radioTest categoryOther"></div>
+        <div><input required type="radio" [(ngModel)]="pickCategory" id="category6" formControlName="categoryForm" name="categoryForm" value="🤷‍♀️"class="radioTest categoryOther"></div>
 
     </div>
     
-</form>
+
 
 
 
 <p>Quelle tâche avez vous à effectuer ?</p>
 
-<!-- On lie on condition entre la zone texte et le bouton valider avec ngModel -->
-<div class="textAreaFlex">
+    <div class="textAreaFlex">
 
-    <p><input #newItem 
-        class="textareaInput" 
-        [(ngModel)]="text" 
-        placeholder="Exemple: Faire les courses" 
-        
-        />
-    </p>
+        <p><input required
+            type="text"
+            formControlName="todoForm"
+            class="textareaInput" 
+            placeholder="Exemple: Faire les courses" 
+            />
+        </p>
 
-</div>
-
-
+    </div>
 
 
 <div class="urgentOption">
-    <input type="checkbox" class="checkbox-round" />
-    <label>La tâche est urgente ⚠️</label>
+    <input 
+    type="checkbox" 
+    class="checkbox-round"
+    formControlName="urgentForm"
+    name="urgentSelect"
+     />
+    <label for="checkbox">La tâche est urgente ⚠️</label>
   </div>
 
 
-<!-- Bouton "Valider ma tâche" accessible uniquement si la zone texte est renseignée -->
-<!-- <app-validate-task-button [text]="text" (click)="addItem(newItem.value)" ></app-validate-task-button> -->
+    <div class="btn-action-flex">
+        <a routerLink="/">
+            <button type="submit" class="btn-action" 
+            (click)="addNewTask()" 
+            [disabled]="taskForm.invalid" 
+            [ngClass]="{'disabled-btn': taskForm.invalid}">
+            Valider ma tâche
+            </button>
+        </a>
+    </div>
 
 
-
-<!-- Bouton "Modifier ma tâche" s'affiche si sélection d'une tâche déjà présente dans la todolist  -->
-<!-- <app-modify-task-button></app-modify-task-button> -->
+</form>
