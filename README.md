@@ -1,6 +1,6 @@
 App toujours non fonctionnelle:
 
-Mon objectif étant de mieux comprendre la mise en place de formulaire via les modules, et faire apparaitre les taches crées sur la page d'accueil. Rien ne s'affiche lorsque on appui sur valider (redirection pahe accueil ok mais rien)
+Mon objectif étant de mieux comprendre la mise en place de formulaire via les modules, et faire apparaitre les taches crées sur la page d'accueil. Rien ne s'affiche lorsque on appuit sur valider (redirection page accueil ok mais rien)
 
 Erreur dans la console que je n'ai pas réussi à résoudre dans les méthodes concernées ci dessous:
 ERROR RangeError: Maximum call stack size exceeded at TaskManagementService.createTask et TaskManagementService.getTask
