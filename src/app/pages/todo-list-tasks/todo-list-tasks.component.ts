@@ -24,21 +24,18 @@ export class TodoListTasksComponent {
   }
 
   ngOnInit() {
-    this.getTaskList()
+    this.todoListArray = this.taskManagementService.getTask();
   }
-
-  //Méthodes filtrage des tâches si urgence ou non:
-  // some() permet de vérifier s'il existe au moins une tâche urgente (ou non) dans le tableau de tâches
-
-    //Méthode pour affichage tâche urgente
-    displayUrgentTask(): boolean {
-      return this.taskManagementService.getTask().some((item: { isUrgent: any; }) => item.isUrgent);
-    }
-
-    //Méthode pour affichage autre tâche
-    displayOtherTask(): boolean {
-      return this.taskManagementService.getTask().some((item: { isUrgent: any; }) => !item.isUrgent);
-    }
+  
+  // Pour réutiliser dans le template, remplaçons `taskManagementService.getTask()` par `todoListArray` :
+  displayUrgentTask(): boolean {
+    return this.todoListArray.some(task => task.isUrgent);
+  }
+  
+  displayOtherTask(): boolean {
+    return this.todoListArray.some(task => !task.isUrgent);
+  }
+  
 
     //Méthode pour modifier une tâche
     modifyTask() {

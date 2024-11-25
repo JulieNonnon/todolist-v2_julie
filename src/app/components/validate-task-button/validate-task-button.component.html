@@ -1,8 +1,10 @@
 <div class="btn-action-flex">
 
     <!-- via un Input, on lie la condition pour que le bouton de ce composant soit accessible une fois la zone texte remplie -->
-    <button class="btn-action" [disabled]="!text" [ngClass]="{'disabled-btn': !text}"><a routerLink="/" [ngClass]="{'disabled-btn': !text}"
-        
-        >Valider ma tâche</a></button>
+    <button class="btn-action" 
+        [disabled]="!text" 
+        [ngClass]="{'disabled-btn': !text}">
+        <a routerLink="/" [ngClass]="{'disabled-btn': !text}">Valider ma tâche</a>
+    </button>
 
 </div>

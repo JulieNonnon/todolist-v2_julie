@@ -26,20 +26,20 @@
 
     <ng-container *ngFor="let task of taskManagementService.getTask()">
 
-    <div class="listedTask" *ngIf="task.isUrgent">
+        <div class="listedTask" *ngIf="task.isUrgent">
 
-        <label for="{{task.id}}">
+            <label for="{{task.id}}">
 
-        <input type="radio" [value]="task.id">
+                <input type="radio" [value]="task.id">
 
-        <div class="taskContent" (click)="modifyTask()">
-            <span class="categoryIcon">{{task.category}}</span>
-            <span>{{task.content}}</span>
+                <div class="taskContent" (click)="modifyTask()">
+                    <span class="categoryIcon">{{task.category}}</span>
+                    <span>{{task.content}}</span>
+                </div>
+
+            </label>
+
         </div>
-
-        </label>
-
-    </div>
 
     </ng-container>
 
@@ -49,20 +49,20 @@
 
     <ng-container *ngFor="let task of taskManagementService.getTask()">
         
-    <div class="listedTask" *ngIf="!task.isUrgent">
+        <div class="listedTask" *ngIf="!task.isUrgent">
 
-        <label for="{{task.content}}">
+            <label for="{{task.content}}">
 
-        <input id="{{task.id}}" [value]='task.id' type="radio">
+                <input id="{{task.id}}" [value]='task.id' type="radio">
 
-        <div class="taskContent" (click)="modifyTask()">
-            <span class="categorySpaceBtw">{{task.category}}</span>
-            <span>{{task.content}}</span>
+                <div class="taskContent" (click)="modifyTask()">
+                    <span class="categorySpaceBtw">{{task.category}}</span>
+                    <span>{{task.content}}</span>
+                </div>
+
+            </label>
+
         </div>
-
-        </label>
-
-    </div>
 
     </ng-container>
 

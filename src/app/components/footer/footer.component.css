@@ -4,8 +4,8 @@ footer{
     justify-content: center;
     border-top: solid 1px white;
     background-color: #040722;
-    /* position: fixed;
-    bottom: 0%; */
+    position: fixed;
+    bottom: 0%;
     padding: 10px;
     width: 100%;
 }
