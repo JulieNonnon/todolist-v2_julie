@@ -35,6 +35,12 @@ export class TodoListTasksComponent {
   displayOtherTask(): boolean {
     return this.todoListArray.some(task => !task.isUrgent);
   }
+
+  markAsCompleted(taskId: number): void {
+    this.taskManagementService.completeTask(taskId); //Déplace la tâche dans l'historique
+    this.todoListArray = this.taskManagementService.getTask(); // Actualise la liste des tâches
+    console.log(taskId);
+  }
   
 
     //Méthode pour modifier une tâche

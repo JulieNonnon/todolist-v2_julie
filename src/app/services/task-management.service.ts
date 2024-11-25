@@ -76,16 +76,16 @@ export class TaskManagementService {
 
   // Sauvegarde la liste des tâches
   private saveTodoList(todoListArray: any[]) {
-    localStorage.setItem(this.STORAGE_KEY, JSON.stringify(todoListArray));
+    localStorage.setItem('task', JSON.stringify(todoListArray));
   }
 
-  // Récupère la liste des tâches depuis le localStorage
+  // Récupère la liste des tâches actives depuis le localStorage
   getTask(): any[] {
-    const task = localStorage.getItem(this.STORAGE_KEY);
+    const task = localStorage.getItem('task');
     if (task) {
       return JSON.parse(task);
     } else {
-      this.createTask();
+      this.createTask(); // Crée une liste vide si aucune tâche n'existe
       return [];
     }
   }
@@ -97,7 +97,66 @@ export class TaskManagementService {
     this.saveTodoList(tasks);
   }
 
-  // next step : Déplacer les tâches terminées dans l'historique
+  // Gestion Historique
+
+  // Déplacer les tâches terminées dans l'historique
+  private readonly HISTORY_KEY = 'taskHistory'; // ajout d'une clef pour l'historique dans le local storage
+
+  // Ajout d'une tâche à l'historique
+  addToHistory(task: any) {
+    const history = this.getHistory();
+    history.unshift(task);
+    localStorage.setItem('task', JSON.stringify(history));
+  }
+
+  // Méthode pour récupérer les tâches terminées
+  getHistory(): any[] {
+    const history = localStorage.getItem('history');
+    return history ? JSON.parse(history) : [];
+  }
+
+  // Sauvegarder les tâches terminées
+  saveHistory(historyList: any[]): void {
+    localStorage.setItem('history', JSON.stringify(historyList));
+  }
+
+  // Marquer une tâche comme terminée
+  completeTask(taskId: number): void {
+    const tasks = this.getTask(); // récupère les tâches existantes
+    const taskIndex = tasks.findIndex((task) => task.id === taskId); // trouve la tâche à compléter
+
+    if (taskIndex !== -1) {
+      //retire la tâche de la liste active
+      const [completedTask] = tasks.splice(taskIndex, 1); 
+      this.saveTodoList(tasks); // sauvegarde les tâches restantes
+      // Ajouter la tâche à l'historique
+      const history = this.getHistory();
+      history.unshift(completedTask); // tâche la plus récente en haut
+      this.saveHistory(history);
+      //this.addToHistory(completedTask); // ajout à l'historique
+    }
+  }
+
+  // Annule une tâche terminée pour la remettre dans la liste des tâches actives
+  cancelTask(taskId: number): void {
+    const history = this.getHistory();
+    const taskIndex = history.findIndex((task) => task.id === taskId);
+
+    if (taskIndex !== -1) {
+      //retire la tâche de l'historique
+      const [canceledTask] = history.splice(taskIndex, 1);
+      this.saveHistory(history);
+      // Ajouter la tâche à la liste active
+      const tasks = this.getTask();
+      tasks.unshift(canceledTask); // Ajouter en tête
+      this.saveTodoList(tasks);
+    }
+    
+  }
+
+
+
+
 
 
 }

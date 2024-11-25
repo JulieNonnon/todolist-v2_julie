@@ -30,7 +30,11 @@
 
             <label for="{{task.id}}">
 
-                <input type="radio" [value]="task.id">
+                <input 
+                    type="radio" 
+                    [value]="task.id"
+                    (change)="markAsCompleted(task.id)"
+                />
 
                 <div class="taskContent" (click)="modifyTask()">
                     <span class="categoryIcon">{{task.category}}</span>
@@ -53,7 +57,12 @@
 
             <label for="{{task.content}}">
 
-                <input id="{{task.id}}" [value]='task.id' type="radio">
+                <input 
+                    id="{{task.id}}" 
+                    [value]='task.id' 
+                    type="radio"
+                    (change)="markAsCompleted(task.id)"
+                />
 
                 <div class="taskContent" (click)="modifyTask()">
                     <span class="categorySpaceBtw">{{task.category}}</span>

@@ -1,13 +1,48 @@
 <!-- Display si historique des tâches vide -->
+<div *ngif="!hasCompletedTasks()">
 
-<div class="emptyContainer">
+    <div class="emptyContainer">
 
-    <div class="emptyHistoryTask">
+        <div class="emptyHistoryTask">
 
-        <p class="emptyContentMessage">Votre historique est vide 😬</p>
+            <p class="emptyContentMessage">Votre historique est vide 😬</p>
 
-        <app-create-task-button></app-create-task-button>
+            <app-create-task-button></app-create-task-button>
+
+        </div>
 
     </div>
+
+</div>
+
+<!-- Display si historique contient des tâches terminées -->
+
+<div *ngIf="hasCompletedTasks()">
+
+    <p> 📜 Historique des tâches : </p>
+
+    <ng-container *ngFor="let task of historyList">
+
+        <div class="listedTask">
+
+            <label for="{{task.id}}">
+
+                <!-- Ajout de l'événement pour invalider une tâche -->
+                <input 
+                    type="radio" 
+                    [value]="task.id"
+                    (change)="cancelCompleted(task.id)"
+                />
+
+                <div class="taskContent">
+                    <span class="categoryIcon">{{task.category}}</span>
+                    <span>{{task.content}}</span>
+                </div>
+
+            </label>
+
+        </div>
+
+    </ng-container>
 
 </div>
