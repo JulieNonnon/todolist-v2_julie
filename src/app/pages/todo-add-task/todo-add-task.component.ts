@@ -36,27 +36,24 @@ export class TodoAddTaskComponent {
     console.log(this.todoListArray)
   }
 
-
   // Méthode pour création nouvelle tâche:
-
   addNewTask() {
-    let newTask = this.taskForm.value;
-    console.log(newTask)
+    const formValue = this.taskForm.value;
+    console.log(formValue)
 
     // Elements récupérés pour création de la tâche dans mon tableau
-    let taskDetail = {
-      id: this.todoListArray.length + 1,
-      category: this.pickCategory,
-      content: newTask.todoForm,
-      isUrgent: newTask.urgent
+    const taskDetail = {
+      id: Date.now(), // ID unique basé sur la timestamp
+      category: formValue.categoryForm,
+      content: formValue.todoForm,
+      isUrgent: formValue.urgentForm || false
     }
 
-    // ajout de la tâche dans mon tableau
-    this.todoListArray.unshift(taskDetail);
-    console.log(this.todoListArray)
     // ajout de la tâche dans le local Storage via mon service taskManagement
     this.taskManagementService.addTask(taskDetail);
+    console.log(this.todoListArray)
 
+    // redirection vers page d'accueil
     this.router.navigate(['/'])
-}
+  }
 }
