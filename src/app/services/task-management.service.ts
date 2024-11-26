@@ -154,6 +154,27 @@ export class TaskManagementService {
     
   }
 
+  // Modification d'une tâche :
+
+  // récupère une tâche spécifique par son id
+  getTaskById(taskId: number) {
+    const taskList = this.getTask();
+    return taskList.find(task => task.id === taskId);
+  }
+
+  updateTask(updatedTask: any) {
+    const taskList = this.getTask();
+    const taskIndex = taskList.findIndex(task => task.id === updatedTask.id);
+  
+    if (taskIndex !== -1) {
+      taskList[taskIndex] = updatedTask;
+      this.saveTodoList(taskList);
+    }
+  }
+  
+
+
+
 
 
 
