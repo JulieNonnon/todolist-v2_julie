@@ -36,7 +36,7 @@
                     (change)="markAsCompleted(task.id)"
                 />
 
-                <div class="taskContent" (click)="modifyTask()">
+                <div class="taskContent" (click)="modifyTask(task.id)">
                     <span class="categoryIcon">{{task.category}}</span>
                     <span>{{task.content}}</span>
                 </div>
@@ -64,7 +64,7 @@
                     (change)="markAsCompleted(task.id)"
                 />
 
-                <div class="taskContent" (click)="modifyTask()">
+                <div class="taskContent" (click)="modifyTask(task.id)">
                     <span class="categorySpaceBtw">{{task.category}}</span>
                     <span>{{task.content}}</span>
                 </div>

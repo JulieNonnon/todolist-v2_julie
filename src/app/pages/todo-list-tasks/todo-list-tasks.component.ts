@@ -44,8 +44,8 @@ export class TodoListTasksComponent {
   
 
     //Méthode pour modifier une tâche
-    modifyTask() {
-      this.router.navigate(['/todo-add-task'])
+    modifyTask(taskId: number) {
+      this.router.navigate(['/todo-add-task'], {queryParams: { id: taskId }});
     }
 
 

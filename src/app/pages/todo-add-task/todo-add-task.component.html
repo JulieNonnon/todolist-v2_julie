@@ -44,11 +44,13 @@
 
     <div class="btn-action-flex">
         <a routerLink="/">
-            <button type="submit" class="btn-action" 
-            (click)="addNewTask()" 
+            <button 
+            type="submit" 
+            class="btn-action" 
+            (click)="isEditMode ? updateTask() : addNewTask()"  
             [disabled]="taskForm.invalid" 
             [ngClass]="{'disabled-btn': taskForm.invalid}">
-            Valider ma tâche
+            {{ isEditMode ? 'Modifier la tâche' : 'Valider ma tâche' }}
             </button>
         </a>
     </div>
