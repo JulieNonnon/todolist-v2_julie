@@ -38,14 +38,14 @@ jobs:
       - name: Install dependencies
         run: npm install
       - name: Build app
-        run: npm run build -- --base-href=/todolist-v2-julie/ --configuration=production --project=todolist-v2-julie
+        run: npm run build -- --base-href=/todolist-v2_julie/ --configuration=production --project=todolist-v2_julie
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
           # Upload entire repository
-          path: './dist/todolist-v2-julie'
+          path: './dist/todolist-v2_julie'
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
