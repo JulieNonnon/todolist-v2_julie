@@ -12,6 +12,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TodoAddTaskComponent } from './pages/todo-add-task/todo-add-task.component';
 import { TodoHistoryTasksComponent } from './pages/todo-history-tasks/todo-history-tasks.component';
 import { TodoListTasksComponent } from './pages/todo-list-tasks/todo-list-tasks.component';
+import { AlertModalComponent } from './shared/alert-modal/alert-modal.component';
 
 
 @NgModule({
@@ -25,6 +26,7 @@ import { TodoListTasksComponent } from './pages/todo-list-tasks/todo-list-tasks.
     TodoAddTaskComponent,
     TodoHistoryTasksComponent,
     TodoListTasksComponent,
+    AlertModalComponent,
   ],
   imports: [
     BrowserModule,

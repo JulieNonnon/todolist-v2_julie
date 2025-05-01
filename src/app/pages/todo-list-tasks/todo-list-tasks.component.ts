@@ -9,9 +9,11 @@ import { Router } from '@angular/router';
 })
 export class TodoListTasksComponent {
 
-
   // Tableau todo / liste de tâche vide
   todoListArray: any [] = []
+
+  alertMessage: string = ''; // Message à afficher
+  isAlertVisible: boolean = false; // Contrôle la visibilité de la modal
 
   constructor(
     public taskManagementService: TaskManagementService,
@@ -39,14 +41,26 @@ export class TodoListTasksComponent {
   markAsCompleted(taskId: number): void {
     this.taskManagementService.completeTask(taskId); //Déplace la tâche dans l'historique
     this.todoListArray = this.taskManagementService.getTask(); // Actualise la liste des tâches
+    this.showAlert('Votre tâche est archivée dans l’historique');
     console.log(taskId);
+    console.log("COMPLETION HERE");
   }
   
 
-    //Méthode pour modifier une tâche
+    // Méthode pour modifier une tâche
     modifyTask(taskId: number) {
       this.router.navigate(['/todo-add-task'], {queryParams: { id: taskId }});
     }
 
+    // Méthodes de modale d'information
+    showAlert(message: string) {
+      console.log('Affichage de la modal:', message);
+      this.alertMessage = message;
+      this.isAlertVisible = true;
+    }
+  
+    closeAlert() {
+      this.isAlertVisible = false;
+    }
 
 }

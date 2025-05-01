@@ -46,3 +46,9 @@
     </ng-container>
 
 </div>
+
+<app-alert-modal 
+  [message]="alertMessage" 
+  [isVisible]="isAlertVisible" 
+  (onClose)="closeAlert()">
+</app-alert-modal>
