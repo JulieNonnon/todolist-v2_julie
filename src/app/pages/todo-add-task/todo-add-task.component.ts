@@ -19,6 +19,9 @@ export class TodoAddTaskComponent {
   //ngModel
   pickCategory!: string;
 
+  alertMessage: string = ''; // Message à afficher
+  isAlertVisible: boolean = false; // Contrôle la visibilité de la modal
+
   constructor(  
     public taskManagementService: TaskManagementService,
     private formBuilder: FormBuilder,
@@ -70,15 +73,21 @@ export class TodoAddTaskComponent {
 
     // ajout de la tâche dans le local Storage via mon service taskManagement
     this.taskManagementService.addTask(taskDetail);
+    this.showAlert('Votre tâche a bien été créée');
     console.log(this.todoListArray)
+    console.log("CREATION HERE");
 
     // redirection vers page d'accueil
-    this.router.navigate(['/'])
+    // Attendre 2 secondes avant la redirection
+    setTimeout(() => {
+      this.router.navigate(['/']);
+    }, 2000);
   }
 
   isEditMode = false; // Permet de savoir si on modifie une tâche
   currentTaskId: number | null = null; // Stocke l'ID de la tâche en cours de modification
 
+  // Méthode pour mise à jour d'une tâche
   updateTask() {
     if (this.currentTaskId !== null) {
       const updatedTask = {
@@ -89,8 +98,26 @@ export class TodoAddTaskComponent {
       };
   
       this.taskManagementService.updateTask(updatedTask);
-      this.router.navigate(['/']);
+      this.showAlert('Votre tâche a bien été modifiée');
+      console.log(this.todoListArray);
+      console.log("UPDATE HERE");
+
+      // Attendre 2 secondes avant la redirection
+      setTimeout(() => {
+        this.router.navigate(['/']);
+      }, 2000);
     }
+  }
+
+  // Méthodes de modale d'information
+  showAlert(message: string) {
+    console.log('Affichage de la modal:', message);
+    this.alertMessage = message;
+    this.isAlertVisible = true;
+  }
+
+  closeAlert() {
+    this.isAlertVisible = false;
   }
   
 
