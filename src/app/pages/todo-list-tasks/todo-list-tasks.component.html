@@ -1,24 +1,20 @@
-<!-- <div *ngIf="!ExistingTask"> -->
+<!-- Display si todolist vide -->
 
-    <!-- Display si todolist vide -->
+<div *ngIf="todoListArray.length === 0" class="emptyContainer">
 
-    <div class="emptyContainer">
+    <div class="emptyTodo">
 
-        <div class="emptyTodo">
+        <p class="emptyContentMessage">Aucune tâche pour le moment 🙌</p>
 
-            <p class="emptyContentMessage">Aucune tâche pour le moment 🙌</p>
-
-            <app-create-task-button></app-create-task-button>
-
-        </div>
+        <app-create-task-button></app-create-task-button>
 
     </div>
 
-<!-- </div> -->
+</div>
 
+<!-- Display si tâche créée -->
 
-
-<!-- <div *ngIf="ExistingTask"> -->
+<div *ngIf="todoListArray.length > 0">
 
     <!-- Tâches urgentes -->
 
@@ -75,13 +71,10 @@
 
     </ng-container>
 
-<!-- </div> -->
+</div>
 
 <app-alert-modal 
   [message]="alertMessage" 
   [isVisible]="isAlertVisible" 
   (onClose)="closeAlert()">
 </app-alert-modal>
-
-
-
