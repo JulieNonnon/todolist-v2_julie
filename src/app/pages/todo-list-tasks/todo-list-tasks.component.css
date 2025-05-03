@@ -1,6 +1,6 @@
 .listedTask label {
     display: flex;
-    margin-left:  0 0 23px 28px; 
+    margin: 10px 5% 10px; 
   }
   
   input[type="radio"] {
