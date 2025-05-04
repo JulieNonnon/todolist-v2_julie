@@ -1,5 +1,5 @@
 <!-- Display si historique des tâches vide -->
-<div *ngif="!hasCompletedTasks()">
+<div *ngIf="historyList.length === 0">
 
     <div class="emptyContainer">
 
@@ -17,7 +17,7 @@
 
 <!-- Display si historique contient des tâches terminées -->
 
-<div *ngIf="hasCompletedTasks()">
+<div *ngIf="historyList.length > 0">
 
     <p> 📜 Historique des tâches : </p>
 
